@@ -165,8 +165,8 @@ stdenv.mkDerivation (finalAttrs: {
   postPatch = ''
     mkdir -p subprojects/libglnx
     cp -r ${libglnxSrc}/* subprojects/libglnx/
-    # mkdir -p subprojects/gvdb
-    # cp -r ${gvdbSrc}/* subprojects/gvdb/
+    mkdir -p subprojects/gvdb
+    cp -r ${gvdbSrc}/* subprojects/gvdb/
 
     # until/unless bubblewrap ships a pkg-config file, meson has no way to find it when cross-compiling.
     substituteInPlace meson.build \
