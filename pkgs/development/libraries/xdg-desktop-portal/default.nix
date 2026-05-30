@@ -39,8 +39,15 @@ let
     domain = "gitlab.gnome.org";
     owner = "GNOME";
     repo = "libglnx";
-    rev = "ccea836b799256420788c463a638ded0636b1632";
-    hash = "sha256-H8Bg9QCSkt/aBOaHLyHYC2ei6OU7UpcLq8zLurkYOuA=";
+    rev = "ff64d52116ae74f0d25e24f089db28921ea171ff";
+    hash = "sha256-FQPctq+fj6du0sBawaJxtO0PRO0KIHHhdA2jh24Yacw=";
+  };
+  gvdbSrc = fetchFromGitLab {
+    domain = "gitlab.gnome.org";
+    owner = "GNOME";
+    repo = "gvdb";
+    rev = "c6f2359cc1d00f16e0a0e2527fa0bc1882b8b5ab";
+    hash = "sha256-FQPctq+fj6du0sBawaJxtO0PRO0KIHHhdA2jh24Yacw=";
   };
 in
 stdenv.mkDerivation (finalAttrs: {
@@ -158,6 +165,8 @@ stdenv.mkDerivation (finalAttrs: {
   postPatch = ''
     mkdir -p subprojects/libglnx
     cp -r ${libglnxSrc}/* subprojects/libglnx/
+    mkdir -p subprojects/gvdb
+    cp -r ${gvdbSrc}/* subprojects/gvdb/
 
     # until/unless bubblewrap ships a pkg-config file, meson has no way to find it when cross-compiling.
     substituteInPlace meson.build \
