@@ -41,6 +41,7 @@ let
     repo = "libglnx";
     rev = "ff64d52116ae74f0d25e24f089db28921ea171ff";
     hash = "sha256-FQPctq+fj6du0sBawaJxtO0PRO0KIHHhdA2jh24Yacw=";
+    shallow = true;
   };
   gvdbSrc = fetchFromGitLab {
     domain = "gitlab.gnome.org";
